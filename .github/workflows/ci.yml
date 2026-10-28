@@ -1,0 +1,21 @@
+name: My First CI Pipeline
+
+on:
+  push:
+    branches:
+      -master
+  workflow_dispatch:
+
+  jobs:
+    checkout-project:
+     runs-on: ubuntu-latest
+
+     steps:
+      - name: Download repository code
+        uses: actions/checkout@v4
+
+      - name: Check HTML file
+        run: test -f index.html
+
+        -name: Show success message
+        run: echo "Hello Akhil! CI Pipeline is working."    
